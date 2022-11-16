@@ -14,8 +14,8 @@ struct OverviewFeature: ReducerProtocol {
         var filterQuery: String
         var launches: [Launch]
         
-        var view: Overview.ViewState {
-            Overview.ViewState.convert(from: self)
+        var view: OverviewView.ViewState {
+            OverviewView.ViewState.convert(from: self)
         }
     }
     
@@ -25,7 +25,7 @@ struct OverviewFeature: ReducerProtocol {
         case filterQueryChanged(String)
         case loadLaunches
         
-        static func view(_ localAction: Overview.ViewAction) -> Self {
+        static func view(_ localAction: OverviewView.ViewAction) -> Self {
             switch localAction {
             case .cellWasSelected(let breed):
                 return .launchWasSelected(name: breed)
@@ -43,6 +43,7 @@ struct OverviewFeature: ReducerProtocol {
     
         struct LaunchResults: Decodable {
             let name: String
+            let url: String
         }
     }
     
@@ -65,8 +66,12 @@ struct OverviewFeature: ReducerProtocol {
                 .map { response in
                     response
                         .results
-                        .map { launch in Launch(name: launch.name) }
-                    
+                        .map { launch in
+                            Launch(
+                                name: launch.name,
+                                url: launch.url
+                            )
+                        }
                 }
                 .replaceError(with: [])
                 .receive(on: DispatchQueue.main)

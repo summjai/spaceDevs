@@ -14,7 +14,7 @@
 		4EC5EB43292386D800F0E9B1 /* TheSpaceDevs2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB42292386D800F0E9B1 /* TheSpaceDevs2_0Tests.swift */; };
 		4EC5EB4D292386D800F0E9B1 /* TheSpaceDevs2_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB4C292386D800F0E9B1 /* TheSpaceDevs2_0UITests.swift */; };
 		4EC5EB4F292386D800F0E9B1 /* TheSpaceDevs2_0UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB4E292386D800F0E9B1 /* TheSpaceDevs2_0UITestsLaunchTests.swift */; };
-		4EC5EB5D2923876700F0E9B1 /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB5C2923876700F0E9B1 /* Overview.swift */; };
+		4EC5EB5D2923876700F0E9B1 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB5C2923876700F0E9B1 /* OverviewView.swift */; };
 		4EC5EB60292387AA00F0E9B1 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 4EC5EB5F292387AA00F0E9B1 /* ComposableArchitecture */; };
 		4EC5EB622923888D00F0E9B1 /* OverviewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB612923888D00F0E9B1 /* OverviewFeature.swift */; };
 		4EC5EB672925231F00F0E9B1 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB662925231F00F0E9B1 /* Launch.swift */; };
@@ -50,7 +50,7 @@
 		4EC5EB48292386D800F0E9B1 /* TheSpaceDevs2.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheSpaceDevs2.0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC5EB4C292386D800F0E9B1 /* TheSpaceDevs2_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSpaceDevs2_0UITests.swift; sourceTree = "<group>"; };
 		4EC5EB4E292386D800F0E9B1 /* TheSpaceDevs2_0UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSpaceDevs2_0UITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4EC5EB5C2923876700F0E9B1 /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
+		4EC5EB5C2923876700F0E9B1 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		4EC5EB612923888D00F0E9B1 /* OverviewFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewFeature.swift; sourceTree = "<group>"; };
 		4EC5EB662925231F00F0E9B1 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
 		4EC5EB6A2925577800F0E9B1 /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				4EC5EB63292388D000F0E9B1 /* Store */,
-				4EC5EB5C2923876700F0E9B1 /* Overview.swift */,
+				4EC5EB5C2923876700F0E9B1 /* OverviewView.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -342,7 +342,7 @@
 				4EC5EB32292386D700F0E9B1 /* TheSpaceDevs2_0App.swift in Sources */,
 				4EC5EB672925231F00F0E9B1 /* Launch.swift in Sources */,
 				4EC5EB622923888D00F0E9B1 /* OverviewFeature.swift in Sources */,
-				4EC5EB5D2923876700F0E9B1 /* Overview.swift in Sources */,
+				4EC5EB5D2923876700F0E9B1 /* OverviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

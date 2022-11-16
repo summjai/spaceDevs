@@ -9,4 +9,9 @@ import Foundation
 
 struct Launch: Equatable {
     let name: String
+    let url: String
+}
+
+extension Launch {
+    static var fake = Launch(name: "Long March 6A | Unknown Payload", url: "")
 }

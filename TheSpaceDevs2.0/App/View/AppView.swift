@@ -24,7 +24,7 @@ struct AppView: View {
       // MARK: - Properties
     
     let store: Store<AppFeature.State, AppFeature.Action>
-    let overview: Overview
+    let overview: OverviewView
     
     var body: some View {
         WithViewStore(store) { viewStore in
@@ -38,7 +38,7 @@ struct AppView: View {
     
     public init(store: StoreOf<AppFeature>) {
         self.store = store
-        overview = Overview(
+        overview = OverviewView(
             store: store.scope(
                 state: \.overviewState.view,
                 action: { local -> AppFeature.Action in
@@ -59,12 +59,7 @@ struct ContentView_Previews: PreviewProvider {
             store:
                 Store(
                     initialState: AppFeature.State(
-                        launches: [
-                            Launch(name: "Long March 6A | Unknown Payload"),
-                            Launch(name: "Long March 6A | Unknown Payload"),
-                            Launch(name: "Long March 6A | Unknown Payload"),
-                            Launch(name: "Long March 6A | Unknown Payload")
-                        ]
+                        launches: [.fake, .fake, .fake]
                     ),
                     reducer: EmptyReducer()
                 )

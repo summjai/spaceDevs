@@ -1,5 +1,5 @@
 //
-//  Overview.swift
+//  OverviewView.swift
 //  TheSpaceDevs2.0
 //
 //  Created by anastasiia.gachkovskaia on 15/11/2022.
@@ -9,7 +9,7 @@ import ComposableArchitecture
 import SwiftUI
 import Foundation
 
-struct Overview: View {
+struct OverviewView: View {
     // MARK: - Store
     
     struct ViewState: Equatable {
@@ -129,9 +129,9 @@ struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             // MARK: - Loaded
-            Overview(
+            OverviewView(
                 store: Store(
-                    initialState: Overview.ViewState(
+                    initialState: OverviewView.ViewState(
                         filterText: "",
                         loadingState: .loaded(
                             launches: [
@@ -148,9 +148,9 @@ struct SwiftUIView_Previews: PreviewProvider {
         
         // MARK: - Loading
         NavigationView {
-            Overview(
+            OverviewView(
                 store: Store(
-                    initialState: Overview.ViewState(
+                    initialState: OverviewView.ViewState(
                         filterText: "",
                         loadingState: .loading
                     ),
