@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4EC5EB32292386D700F0E9B1 /* TheSpaceDevs2_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB31292386D700F0E9B1 /* TheSpaceDevs2_0App.swift */; };
-		4EC5EB34292386D700F0E9B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB33292386D700F0E9B1 /* ContentView.swift */; };
+		4EC5EB34292386D700F0E9B1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB33292386D700F0E9B1 /* AppView.swift */; };
 		4EC5EB36292386D800F0E9B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EC5EB35292386D800F0E9B1 /* Assets.xcassets */; };
 		4EC5EB39292386D800F0E9B1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EC5EB38292386D800F0E9B1 /* Preview Assets.xcassets */; };
 		4EC5EB43292386D800F0E9B1 /* TheSpaceDevs2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB42292386D800F0E9B1 /* TheSpaceDevs2_0Tests.swift */; };
@@ -18,6 +18,8 @@
 		4EC5EB60292387AA00F0E9B1 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 4EC5EB5F292387AA00F0E9B1 /* ComposableArchitecture */; };
 		4EC5EB622923888D00F0E9B1 /* OverviewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB612923888D00F0E9B1 /* OverviewFeature.swift */; };
 		4EC5EB672925231F00F0E9B1 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB662925231F00F0E9B1 /* Launch.swift */; };
+		4EC5EB6B2925577800F0E9B1 /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB6A2925577800F0E9B1 /* AppFeature.swift */; };
+		4EC5EB6E292559E400F0E9B1 /* OverviewInternalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB6D292559E400F0E9B1 /* OverviewInternalState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +42,7 @@
 /* Begin PBXFileReference section */
 		4EC5EB2E292386D700F0E9B1 /* TheSpaceDevs2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheSpaceDevs2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EC5EB31292386D700F0E9B1 /* TheSpaceDevs2_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheSpaceDevs2_0App.swift; sourceTree = "<group>"; };
-		4EC5EB33292386D700F0E9B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4EC5EB33292386D700F0E9B1 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		4EC5EB35292386D800F0E9B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EC5EB38292386D800F0E9B1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4EC5EB3E292386D800F0E9B1 /* TheSpaceDevs2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheSpaceDevs2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +53,8 @@
 		4EC5EB5C2923876700F0E9B1 /* Overview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
 		4EC5EB612923888D00F0E9B1 /* OverviewFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewFeature.swift; sourceTree = "<group>"; };
 		4EC5EB662925231F00F0E9B1 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		4EC5EB6A2925577800F0E9B1 /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
+		4EC5EB6D292559E400F0E9B1 /* OverviewInternalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewInternalState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,9 +159,10 @@
 		4EC5EB64292522FF00F0E9B1 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				4EC5EB652925231500F0E9B1 /* Models */,
 				4EC5EB31292386D700F0E9B1 /* TheSpaceDevs2_0App.swift */,
-				4EC5EB33292386D700F0E9B1 /* ContentView.swift */,
+				4EC5EB692925575200F0E9B1 /* AppFeature */,
+				4EC5EB682925573C00F0E9B1 /* View */,
+				4EC5EB652925231500F0E9B1 /* Models */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -166,6 +171,31 @@
 			isa = PBXGroup;
 			children = (
 				4EC5EB662925231F00F0E9B1 /* Launch.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4EC5EB682925573C00F0E9B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EC5EB33292386D700F0E9B1 /* AppView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EC5EB692925575200F0E9B1 /* AppFeature */ = {
+			isa = PBXGroup;
+			children = (
+				4EC5EB6C2925580900F0E9B1 /* Models */,
+				4EC5EB6A2925577800F0E9B1 /* AppFeature.swift */,
+			);
+			path = AppFeature;
+			sourceTree = "<group>";
+		};
+		4EC5EB6C2925580900F0E9B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4EC5EB6D292559E400F0E9B1 /* OverviewInternalState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -306,7 +336,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EC5EB34292386D700F0E9B1 /* ContentView.swift in Sources */,
+				4EC5EB6B2925577800F0E9B1 /* AppFeature.swift in Sources */,
+				4EC5EB34292386D700F0E9B1 /* AppView.swift in Sources */,
+				4EC5EB6E292559E400F0E9B1 /* OverviewInternalState.swift in Sources */,
 				4EC5EB32292386D700F0E9B1 /* TheSpaceDevs2_0App.swift in Sources */,
 				4EC5EB672925231F00F0E9B1 /* Launch.swift in Sources */,
 				4EC5EB622923888D00F0E9B1 /* OverviewFeature.swift in Sources */,

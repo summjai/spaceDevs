@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Launch {
+struct Launch: Equatable {
     let name: String
 }

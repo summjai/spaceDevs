@@ -9,30 +9,69 @@ import ComposableArchitecture
 import Foundation
 
 struct OverviewFeature: ReducerProtocol {
-    struct State {
+    // MARK: - Store
+    struct State: Equatable {
         var filterQuery: String
         var launches: [Launch]
+        
+        var view: Overview.ViewState {
+            Overview.ViewState.convert(from: self)
+        }
     }
     
-    enum Action {
-        case missionWasSelected(name: String)
-        case missionsLoaded([Launch])
+    enum Action: Equatable {
+        case launchWasSelected(name: String) // TODO: by id?
+        case launchesLoaded([Launch])
         case filterQueryChanged(String)
-        case loadMissions
+        case loadLaunches
+        
+        static func view(_ localAction: Overview.ViewAction) -> Self {
+            switch localAction {
+            case .cellWasSelected(let breed):
+                return .launchWasSelected(name: breed)
+            case .onAppear:
+                return .loadLaunches
+            case .filterTextChanged(let newValue):
+                return .filterQueryChanged(newValue)
+            }
+        }
     }
     
-    public var body: some ReducerProtocol<State, Action> {
-        Reduce { state, action in
-            switch action {
-            case .missionWasSelected(name: let name):
-                return .none
-            case .missionsLoaded(_):
-                return .none
-            case .filterQueryChanged(_):
-                return .none
-            case .loadMissions:
-                return .none
-            }
+    // MARK: - Response
+    struct LaunchesResponse: Decodable {
+        let results: [LaunchResults]
+    
+        struct LaunchResults: Decodable {
+            let name: String
+        }
+    }
+    
+    // MARK: - Properties
+    
+    public func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
+        switch action {
+        case .launchWasSelected:
+            return .none
+        case .launchesLoaded(let launches):
+            state.launches = launches
+            return .none
+        case .filterQueryChanged(_):
+            return .none
+        case .loadLaunches:
+            return URLSession.shared
+                .dataTaskPublisher(for: URL(string: "https://ll.thespacedevs.com/2.0.0/launch/upcoming/?limit=10&offset=10")!)
+                .map(\.data)
+                .decode(type: LaunchesResponse.self, decoder: JSONDecoder())
+                .map { response in
+                    response
+                        .results
+                        .map { launch in Launch(name: launch.name) }
+                    
+                }
+                .replaceError(with: [])
+                .receive(on: DispatchQueue.main)
+                .eraseToEffect()
+                .map(OverviewFeature.Action.launchesLoaded)
         }
     }
 }

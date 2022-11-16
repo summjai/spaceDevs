@@ -7,9 +7,10 @@
 
 import ComposableArchitecture
 import SwiftUI
+import Foundation
 
 struct Overview: View {
-    // MARK: - Types
+    // MARK: - Store
     
     struct ViewState: Equatable {
         let filterText: String
@@ -24,6 +25,28 @@ struct Overview: View {
                 return launches
             }
             var isLoading: Bool { self == .loading }
+        }
+        
+        static func convert(from state: OverviewFeature.State) -> Self {
+            .init(
+                filterText: state.filterQuery,
+                loadingState: loadingState(from: state)
+            )
+        }
+        
+        private static func loadingState(
+            from state: OverviewFeature.State
+        ) -> LoadingState {
+            if state.launches.isEmpty { return .loading }
+            
+            var launches = state.launches.map(\.name)
+            if !state.filterQuery.isEmpty {
+                launches = launches.filter {
+                    $0.lowercased().contains(state.filterQuery.lowercased())
+                }
+            }
+            
+            return .loaded(launches: launches)
         }
     }
     
@@ -121,8 +144,10 @@ struct SwiftUIView_Previews: PreviewProvider {
                     reducer: EmptyReducer()
                 )
             )
-            
-            // MARK: - Loading
+        }
+        
+        // MARK: - Loading
+        NavigationView {
             Overview(
                 store: Store(
                     initialState: Overview.ViewState(
