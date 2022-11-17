@@ -37,16 +37,6 @@ struct OverviewFeature: ReducerProtocol {
         }
     }
     
-    // MARK: - Response
-    struct LaunchesResponse: Decodable {
-        let results: [LaunchResults]
-    
-        struct LaunchResults: Decodable {
-            let name: String
-            let url: String
-        }
-    }
-    
     // MARK: - Properties
     
     public func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
@@ -59,24 +49,7 @@ struct OverviewFeature: ReducerProtocol {
         case .filterQueryChanged(_):
             return .none
         case .loadLaunches:
-            return URLSession.shared
-                .dataTaskPublisher(for: URL(string: "https://ll.thespacedevs.com/2.0.0/launch/upcoming/?limit=10&offset=10")!)
-                .map(\.data)
-                .decode(type: LaunchesResponse.self, decoder: JSONDecoder())
-                .map { response in
-                    response
-                        .results
-                        .map { launch in
-                            Launch(
-                                name: launch.name,
-                                url: launch.url
-                            )
-                        }
-                }
-                .replaceError(with: [])
-                .receive(on: DispatchQueue.main)
-                .eraseToEffect()
-                .map(OverviewFeature.Action.launchesLoaded)
+            return LaunchesService.live().map(OverviewFeature.Action.launchesLoaded)
         }
     }
 }
