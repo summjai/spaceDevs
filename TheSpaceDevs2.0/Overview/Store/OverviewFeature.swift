@@ -9,7 +9,7 @@ import ComposableArchitecture
 import Foundation
 
 struct OverviewFeature: ReducerProtocol {
-    // MARK: - Store
+    // MARK: - Reducer
     struct State: Equatable {
         var filterQuery: String
         var launches: [Launch]
@@ -20,7 +20,7 @@ struct OverviewFeature: ReducerProtocol {
     }
     
     enum Action: Equatable {
-        case launchWasSelected(name: String) // TODO: by id?
+        case launchWasSelected(name: String) // TODO: delete name
         case launchesLoaded([Launch])
         case filterQueryChanged(String)
         case loadLaunches

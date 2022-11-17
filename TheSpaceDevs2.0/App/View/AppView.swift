@@ -31,9 +31,29 @@ struct AppView: View {
             NavigationView {
                 HStack {
                     overview
+                    NavigationLink(
+                        destination: detailsView,
+                        isActive: viewStore.binding(
+                            get: { $0.detailsState != nil },
+                            send: .dissappear // TODO: redo on details dissappear
+                        ),
+                        label: EmptyView.init
+                    )
                 }
             }
         }
+    }
+    
+    var detailsView: some View {
+        IfLetStore(
+            store.scope(
+                state: \.detailsState?.view,
+                action: { local -> AppFeature.Action in
+                    AppFeature.Action.details(DetailsFeature.Action.view(local))
+                }
+            ),
+            then: DetailsView.init(store:)
+        )
     }
     
     public init(store: StoreOf<AppFeature>) {

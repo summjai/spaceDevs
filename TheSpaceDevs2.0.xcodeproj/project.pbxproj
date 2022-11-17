@@ -21,6 +21,9 @@
 		4EC5EB6B2925577800F0E9B1 /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB6A2925577800F0E9B1 /* AppFeature.swift */; };
 		4EC5EB6E292559E400F0E9B1 /* OverviewInternalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB6D292559E400F0E9B1 /* OverviewInternalState.swift */; };
 		4EC5EB72292579E400F0E9B1 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB71292579E400F0E9B1 /* DetailsView.swift */; };
+		4EC5EB7529257F3700F0E9B1 /* DetailsFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB7429257F3700F0E9B1 /* DetailsFeature.swift */; };
+		4EC5EB782925809E00F0E9B1 /* DetailsView.ViewState + Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB772925809E00F0E9B1 /* DetailsView.ViewState + Fake.swift */; };
+		4EC5EB7A2925839000F0E9B1 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC5EB792925839000F0E9B1 /* Details.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		4EC5EB6A2925577800F0E9B1 /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		4EC5EB6D292559E400F0E9B1 /* OverviewInternalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewInternalState.swift; sourceTree = "<group>"; };
 		4EC5EB71292579E400F0E9B1 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		4EC5EB7429257F3700F0E9B1 /* DetailsFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsFeature.swift; sourceTree = "<group>"; };
+		4EC5EB772925809E00F0E9B1 /* DetailsView.ViewState + Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsView.ViewState + Fake.swift"; sourceTree = "<group>"; };
+		4EC5EB792925839000F0E9B1 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,8 +151,8 @@
 		4EC5EB5B2923874600F0E9B1 /* Overview */ = {
 			isa = PBXGroup;
 			children = (
+				4EC5EB7629257F4C00F0E9B1 /* View */,
 				4EC5EB63292388D000F0E9B1 /* Store */,
-				4EC5EB5C2923876700F0E9B1 /* OverviewView.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -173,7 +179,9 @@
 		4EC5EB652925231500F0E9B1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4EC5EB6D292559E400F0E9B1 /* OverviewInternalState.swift */,
 				4EC5EB662925231F00F0E9B1 /* Launch.swift */,
+				4EC5EB792925839000F0E9B1 /* Details.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,23 +197,15 @@
 		4EC5EB692925575200F0E9B1 /* AppFeature */ = {
 			isa = PBXGroup;
 			children = (
-				4EC5EB6C2925580900F0E9B1 /* Models */,
 				4EC5EB6A2925577800F0E9B1 /* AppFeature.swift */,
 			);
 			path = AppFeature;
 			sourceTree = "<group>";
 		};
-		4EC5EB6C2925580900F0E9B1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4EC5EB6D292559E400F0E9B1 /* OverviewInternalState.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		4EC5EB6F292579CD00F0E9B1 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				4EC5EB7329257EFF00F0E9B1 /* Store */,
 				4EC5EB70292579DD00F0E9B1 /* View */,
 			);
 			path = Details;
@@ -215,6 +215,23 @@
 			isa = PBXGroup;
 			children = (
 				4EC5EB71292579E400F0E9B1 /* DetailsView.swift */,
+				4EC5EB772925809E00F0E9B1 /* DetailsView.ViewState + Fake.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EC5EB7329257EFF00F0E9B1 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				4EC5EB7429257F3700F0E9B1 /* DetailsFeature.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		4EC5EB7629257F4C00F0E9B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EC5EB5C2923876700F0E9B1 /* OverviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -360,6 +377,9 @@
 				4EC5EB6E292559E400F0E9B1 /* OverviewInternalState.swift in Sources */,
 				4EC5EB32292386D700F0E9B1 /* TheSpaceDevs2_0App.swift in Sources */,
 				4EC5EB672925231F00F0E9B1 /* Launch.swift in Sources */,
+				4EC5EB782925809E00F0E9B1 /* DetailsView.ViewState + Fake.swift in Sources */,
+				4EC5EB7A2925839000F0E9B1 /* Details.swift in Sources */,
+				4EC5EB7529257F3700F0E9B1 /* DetailsFeature.swift in Sources */,
 				4EC5EB72292579E400F0E9B1 /* DetailsView.swift in Sources */,
 				4EC5EB622923888D00F0E9B1 /* OverviewFeature.swift in Sources */,
 				4EC5EB5D2923876700F0E9B1 /* OverviewView.swift in Sources */,
