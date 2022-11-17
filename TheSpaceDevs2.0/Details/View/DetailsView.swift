@@ -31,7 +31,9 @@ struct DetailsView: View {
         }
         
         private static func loadingState(from state: DetailsFeature.State) -> LoadingState {
-            // TODO: Make details optional
+            guard !state.details.description.isEmpty else {
+                return .loading
+            }
             return .loaded(details: state.details)
         }
     }
@@ -46,35 +48,38 @@ struct DetailsView: View {
     
     var body: some View {
         WithViewStore(store) { viewStore in
+            if viewStore.loadingState.isLoading {
+                ProgressView()
+            } else {
             VStack {
-                HStack {
-                    VStack(alignment: .leading) {
-                        launchImage(for: viewStore)
-                    }
-                    VStack {
-                        launchName(for: viewStore)
-                        Spacer().frame(height: 8.0)
-                        launchCaption(for: viewStore)
-                        Spacer().frame(height: 24.0)
-                        VStack {
-                            timer(for: viewStore)
-                            launchDate(for: viewStore)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            launchImage(for: viewStore)
                         }
+                        VStack {
+                            launchName(for: viewStore)
+                            Spacer().frame(height: 8.0)
+                            launchCaption(for: viewStore)
+                            Spacer().frame(height: 24.0)
+                            VStack {
+                                timer(for: viewStore)
+                                launchDate(for: viewStore)
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding(.top)
+                    HStack {
+                        Spacer().frame(width: 4.0)
+                        Image("location")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .cornerRadius(20.0)
+                        Spacer().frame(width: 4.0)
                     }
                     Spacer()
-                }
-                .padding(.top)
-                HStack {
-                    Spacer().frame(width: 4.0)
-                    Image("location")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(20.0)
-                    Spacer().frame(width: 4.0)
-                }
-                Spacer()
+                }.background(Color.black.opacity(0.86))
             }
-            .background(Color.black.opacity(0.86))
         }
     }
     
@@ -138,6 +143,7 @@ struct DetailsView: View {
 
 // MARK: - PreviewProvider
 
+#if DEBUG
 struct DetailsView_Preview: PreviewProvider {
     static var previews: some View {
         DetailsView(
@@ -148,3 +154,4 @@ struct DetailsView_Preview: PreviewProvider {
         )
     }
 }
+#endif

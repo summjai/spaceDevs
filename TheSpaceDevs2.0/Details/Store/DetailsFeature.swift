@@ -15,7 +15,7 @@ struct DetailsFeature: ReducerProtocol {
         var launch: Launch
         var details: Details
         
-        static let initial = State(launch: Launch(name: "", url: ""), details: Details(description: ""))
+        static let initial = State(launch: .initial, details: .initial)
         
         var view: DetailsView.ViewState {
             DetailsView.ViewState.convert(from: self)
@@ -23,7 +23,7 @@ struct DetailsFeature: ReducerProtocol {
     }
     
     enum Action: Equatable {
-        case detailsLoaded(details: Details)
+        case detailsLoaded(details: Details?)
         case loadDetails
         
         static func view(_ localAction: DetailsView.ViewAction) -> Self {
@@ -37,10 +37,11 @@ struct DetailsFeature: ReducerProtocol {
     public func reduce(into state: inout State, action: Action) -> Effect<Action, Never> {
         switch action {
         case .detailsLoaded(details: let details):
+            guard let details else { return .none }
             state.details.description = details.description
             return .none
         case .loadDetails:
-            return EffectPublisher(value: Action.detailsLoaded(details: Details(description: "ffffffff")))
+            return EffectPublisher(value: Action.detailsLoaded(details: nil))
         }
     }
 }

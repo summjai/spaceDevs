@@ -31,11 +31,12 @@ struct AppView: View {
             NavigationView {
                 HStack {
                     overview
+                    // TODO: redo on navigation stack
                     NavigationLink(
                         destination: detailsView,
                         isActive: viewStore.binding(
                             get: { $0.detailsState != nil },
-                            send: .dissappear // TODO: redo on details dissappear
+                            send: .dissappear
                         ),
                         label: EmptyView.init
                     )
@@ -73,6 +74,7 @@ struct AppView: View {
 
 // MARK: - PreviewProvider
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         AppView(
@@ -86,3 +88,4 @@ struct ContentView_Previews: PreviewProvider {
         )
     }
 }
+#endif

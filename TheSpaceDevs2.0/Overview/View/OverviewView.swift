@@ -125,6 +125,7 @@ struct OverviewView: View {
 
 // MARK: - PreviewProvider
 
+#if DEBUG
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
@@ -160,3 +161,4 @@ struct SwiftUIView_Previews: PreviewProvider {
         }
     }
 }
+#endif

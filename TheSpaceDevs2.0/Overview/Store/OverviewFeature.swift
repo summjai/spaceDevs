@@ -20,15 +20,15 @@ struct OverviewFeature: ReducerProtocol {
     }
     
     enum Action: Equatable {
-        case launchWasSelected(name: String) // TODO: delete name
+        case launchWasSelected 
         case launchesLoaded([Launch])
         case filterQueryChanged(String)
         case loadLaunches
         
         static func view(_ localAction: OverviewView.ViewAction) -> Self {
             switch localAction {
-            case .cellWasSelected(let breed):
-                return .launchWasSelected(name: breed)
+            case .cellWasSelected:
+                return .launchWasSelected
             case .onAppear:
                 return .loadLaunches
             case .filterTextChanged(let newValue):

@@ -10,6 +10,8 @@ import Foundation
 struct Launch: Equatable {
     let name: String
     let url: String
+    
+    static let initial = Launch(name: "", url: "")
 }
 
 extension Launch {
