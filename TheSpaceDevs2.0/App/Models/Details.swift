@@ -12,3 +12,4 @@ struct Details: Equatable {
     
     static let initial = Details(description: "")
 }
+

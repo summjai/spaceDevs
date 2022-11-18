@@ -38,3 +38,4 @@ enum LaunchesService {
 extension LaunchesService {
     static let live: () -> Effect<[Launch], Never> = LaunchesService.fetchLaunches(fetch: NetworkClient.live.perform)
 }
+
