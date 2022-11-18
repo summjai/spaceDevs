@@ -13,3 +13,4 @@ extension DetailsView.ViewState {
         loadingState: .loaded(details: Details(description: ""))
     )
 }
+

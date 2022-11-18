@@ -18,3 +18,4 @@ struct OverviewInternalState: Equatable {
         self.filterQuery = state.filterQuery
     }
 }
+

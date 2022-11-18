@@ -214,6 +214,7 @@
 		4EC5EB6F292579CD00F0E9B1 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				4EC5EB8829269B9300F0E9B1 /* Network */,
 				4EC5EB7329257EFF00F0E9B1 /* Store */,
 				4EC5EB70292579DD00F0E9B1 /* View */,
 			);
@@ -286,6 +287,13 @@
 				4EC5EB862926802800F0E9B1 /* AnyPublisher + Failure.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4EC5EB8829269B9300F0E9B1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
